@@ -43,12 +43,27 @@ int main() {
         cout << "Total global mem: " << p.totalGlobalMem / (1024.0 * 1024.0 * 1024.0) << " GB" << endl;
         cout << "Shared mem per block: " << p.sharedMemPerBlock / 1024.0 << " KB" << endl;
         cout << "L2 Cache: " << p.l2CacheSize / (1024.0 * 1024.0) << " MB" << endl;
+        cout << "Memory Bus Width: " << p.memoryBusWidth << " bits" << endl;
+        cout << "Memory Clock Rate: " << p.memoryClockRate / 1000.0 << " MHz" << endl;
 
         cout << "\nThread Limits:" << endl;
         cout << "Max threads per block: " << p.maxThreadsPerBlock << endl;
         cout << "Max threads dims: " << p.maxThreadsDim[0] << "x" << p.maxThreadsDim[1] << "x" << p.maxThreadsDim[2] << endl;
         cout << "Max grid dims: " << p.maxGridSize[0] << "x" << p.maxGridSize[1] << "x" << p.maxGridSize[2] << endl;
         cout << "Warp size: " << p.warpSize << endl;
+        
+        cout << "\nClock & Hardware Capabilities:" << endl;
+        cout << "GPU Clock Rate: " << p.clockRate / 1000.0 << " MHz" << endl;
+        cout << "Concurrent Kernels: " << (p.concurrentKernels ? "Yes" : "No") << endl;
+        cout << "Async Engine Count: " << p.asyncEngineCount << endl;
+        cout << "Unified Addressing: " << (p.unifiedAddressing ? "Yes" : "No") << endl;
+        cout << "Managed Memory: " << (p.managedMemory ? "Yes" : "No") << endl;
+        cout << "ECC Enabled: " << (p.ECCEnabled ? "Yes" : "No") << endl;
+        cout << "Cooperative Launch: " << (p.cooperativeLaunch ? "Yes" : "No") << endl;
+        
+        cout << "\nAdditional Limits:" << endl;
+        cout << "Max Blocks per SM: " << p.maxBlocksPerMultiProcessor << endl;
+        cout << "Max Resident Threads per SM: " << p.maxThreadsPerMultiProcessor << endl;
     }
     
     return 0;
